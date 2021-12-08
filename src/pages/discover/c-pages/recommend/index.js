@@ -1,35 +1,59 @@
 import React, { memo, useEffect } from 'react'
-import { connect } from 'react-redux'
+import { useDispatch, useSelector, shallowEqual } from 'react-redux'
 
 import { getTopBannerAction } from './store/actionCreators'
 
 function HYRecommend(props) {
-  const { getBanners, topBanners } = props
+  // 组件和 redux 关联
+  const dispatch = useDispatch()
+  const { topBanners } = useSelector((state) => {
+    return {
+      topBanners: state.recommend.topBanners,
+    }
+  }, shallowEqual)
 
+  // 发起网络请求
   useEffect(() => {
-    getBanners()
-  }, [getBanners])
+    dispatch(getTopBannerAction())
+  }, [dispatch])
 
   return (
     <div>
       HYRecommend
-      <h2> {topBanners.length}</h2>
+      <h2>{topBanners.length}</h2>
     </div>
   )
 }
 
-const mapStateToProps = (state) => {
-  return {
-    topBanners: state.recommend.topBanners,
-  }
-}
+export default memo(HYRecommend)
 
-const mapDispatchTopProps = (dispatch) => {
-  return {
-    getBanners: () => {
-      dispatch(getTopBannerAction())
-    },
-  }
-}
+// function HYRecommend(props) {
+//   const { getBanners, topBanners } = props
 
-export default connect(mapStateToProps, mapDispatchTopProps)(memo(HYRecommend))
+//   useEffect(() => {
+//     getBanners()
+//   }, [getBanners])
+
+//   return (
+//     <div>
+//       HYRecommend
+//       <h2> {topBanners.length}</h2>
+//     </div>
+//   )
+// }
+
+// const mapStateToProps = (state) => {
+//   return {
+//     topBanners: state.recommend.topBanners,
+//   }
+// }
+
+// const mapDispatchTopProps = (dispatch) => {
+//   return {
+//     getBanners: () => {
+//       dispatch(getTopBannerAction())
+//     },
+//   }
+// }
+
+// export default connect(mapStateToProps, mapDispatchTopProps)(memo(HYRecommend))
