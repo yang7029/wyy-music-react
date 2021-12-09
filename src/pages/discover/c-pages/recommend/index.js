@@ -1,27 +1,12 @@
-import React, { memo, useEffect } from 'react'
-import { useDispatch, useSelector, shallowEqual } from 'react-redux'
+import React, { memo } from 'react'
+import HYTopBanner from './c-cpns/top-banner'
+import { RecommendWrapper } from './style.js'
 
-import { getTopBannerAction } from './store/actionCreators'
-
-function HYRecommend(props) {
-  // 组件和 redux 关联
-  const dispatch = useDispatch()
-  const { topBanners } = useSelector((state) => {
-    return {
-      topBanners: state.recommend.topBanners,
-    }
-  }, shallowEqual)
-
-  // 发起网络请求
-  useEffect(() => {
-    dispatch(getTopBannerAction())
-  }, [dispatch])
-
+function HYRecommend() {
   return (
-    <div>
-      HYRecommend
-      <h2>{topBanners.length}</h2>
-    </div>
+    <RecommendWrapper>
+      <HYTopBanner />
+    </RecommendWrapper>
   )
 }
 

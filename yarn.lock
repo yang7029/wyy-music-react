@@ -5994,7 +5994,7 @@ immer@8.0.1:
 
 immutable@^4.0.0:
   version "4.0.0"
-  resolved "https://registry.npmmirror.com/immutable/download/immutable-4.0.0.tgz#b86f78de6adef3608395efb269a91462797e2c23"
+  resolved "https://registry.npmmirror.com/immutable/download/immutable-4.0.0.tgz?cache=0&sync_timestamp=1633651544502&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fimmutable%2Fdownload%2Fimmutable-4.0.0.tgz#b86f78de6adef3608395efb269a91462797e2c23"
   integrity sha1-uG943mre82CDle+yaakUYnl+LCM=
 
 import-cwd@^2.0.0:
