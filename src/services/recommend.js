@@ -1,34 +1,34 @@
-import request from './request';
+import request from './request'
 
 export function getTopBanners() {
   return request({
-    url: "/banner"
+    url: '/banner',
   })
 }
 
 export function getHotRecommends(limit) {
   return request({
-    url: "/personalized",
+    url: '/personalized',
     params: {
-      limit
-    }
+      limit,
+    },
   })
 }
 
 export function getNewAlbums(limit) {
   return request({
-    url: "/top/album",
+    url: '/top/album',
     params: {
-      limit
-    }
+      limit,
+    },
   })
 }
 
 export function getTopList(idx) {
   return request({
-    url: "/top/list",
+    url: '/top/list',
     params: {
-      idx
-    }
+      idx,
+    },
   })
 }
